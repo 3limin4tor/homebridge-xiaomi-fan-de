@@ -241,7 +241,7 @@ class xiaomiFanDevice {
 
   prepareMoveControlService() {
     if (this.moveControl && this.fanDevice.supportsLeftRightMove()) {
-      this.moveLeftService = new Service.Switch('Move left', 'moveLeftService');
+      this.moveLeftService = new Service.Switch('Nach links', 'moveLeftService');
       this.moveLeftService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getMoveFanSwitch.bind(this))
@@ -251,7 +251,7 @@ class xiaomiFanDevice {
 
       this.fanAccesory.addService(this.moveLeftService);
 
-      this.moveRightService = new Service.Switch('Move right', 'moveRightService');
+      this.moveRightService = new Service.Switch('Nach rechts', 'moveRightService');
       this.moveRightService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getMoveFanSwitch.bind(this))
@@ -263,7 +263,7 @@ class xiaomiFanDevice {
     }
 
     if (this.moveControl && this.fanDevice.supportsUpDownMove()) {
-      this.moveUpService = new Service.Switch('Move Up', 'moveUpService');
+      this.moveUpService = new Service.Switch('Hoch', 'moveUpService');
       this.moveUpService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getMoveFanSwitch.bind(this))
@@ -273,7 +273,7 @@ class xiaomiFanDevice {
 
       this.fanAccesory.addService(this.moveUpService);
 
-      this.moveDownService = new Service.Switch('Move down', 'moveDownService');
+      this.moveDownService = new Service.Switch('Runter', 'moveDownService');
       this.moveDownService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getMoveFanSwitch.bind(this))
@@ -287,7 +287,7 @@ class xiaomiFanDevice {
 
   prepareBuzzerControlService() {
     if (this.buzzerControl && this.fanDevice.supportsBuzzerControl()) {
-      this.buzzerService = new Service.Switch('Buzzer', 'buzzerService');
+      this.buzzerService = new Service.Switch('Benachrichtigungston', 'buzzerService');
       this.buzzerService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getBuzzer.bind(this))
@@ -327,7 +327,7 @@ class xiaomiFanDevice {
 
   prepareNaturalModeControlService() {
     if (this.naturalModeControl && this.fanDevice.supportsNaturalMode()) {
-      this.naturalModeControlService = new Service.Switch('Natural mode', 'naturalModeControlService');
+      this.naturalModeControlService = new Service.Switch('Natürliche Brise', 'naturalModeControlService');
       this.naturalModeControlService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getNaturalMode.bind(this))
@@ -339,7 +339,7 @@ class xiaomiFanDevice {
 
   prepareSleepModeControlService() {
     if (this.sleepModeControl && this.fanDevice.supportsSleepMode()) {
-      this.sleepModeControlService = new Service.Switch('Sleep mode', 'sleepModeControlService');
+      this.sleepModeControlService = new Service.Switch('Schlaf Modus', 'sleepModeControlService');
       this.sleepModeControlService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getSleepMode.bind(this))
@@ -351,7 +351,7 @@ class xiaomiFanDevice {
 
   prepareShutdownTimerService() {
     if (this.shutdownTimer && this.fanDevice.supportsPowerOffTimer()) {
-      this.shutdownTimerService = new Service.Lightbulb('Shutdown timer', 'shutdownTimerService');
+      this.shutdownTimerService = new Service.Lightbulb('Ausschalt Timer', 'shutdownTimerService');
       this.shutdownTimerService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getShutdownTimerEnabled.bind(this))
@@ -397,7 +397,7 @@ class xiaomiFanDevice {
       }
 
       this.angleButtons[i] = parsedValue;
-      let tmpAngleButton = new Service.Switch('Angle - ' + parsedValue, 'angleButtonService' + i);
+      let tmpAngleButton = new Service.Switch('Bewegung - ' + parsedValue, 'angleButtonService' + i);
       tmpAngleButton
         .getCharacteristic(Characteristic.On)
         .on('get', (callback) => {
@@ -444,7 +444,7 @@ class xiaomiFanDevice {
       }
 
       this.verticalAngleButtons[i] = parsedValue;
-      let tmpAngleButton = new Service.Switch('Vertical Angle - ' + parsedValue, 'verticalAngleButtonService' + i);
+      let tmpAngleButton = new Service.Switch('Bewegung horizontal - ' + parsedValue, 'verticalAngleButtonService' + i);
       tmpAngleButton
         .getCharacteristic(Characteristic.On)
         .on('get', (callback) => {
@@ -463,7 +463,7 @@ class xiaomiFanDevice {
     if (this.fanLevelControl && this.fanDevice.supportsFanLevel()) {
       this.fanLevelControlService = new Array();
       for (let i = 1; i <= this.fanDevice.numberOfFanLevels(); i++) {
-        let tmpFanLevelButton = new Service.Switch('Level ' + i, 'levelControlService' + i);
+        let tmpFanLevelButton = new Service.Switch('Geschwindigkeit ' + i, 'levelControlService' + i);
         tmpFanLevelButton
           .getCharacteristic(Characteristic.On)
           .on('get', (callback) => {
@@ -481,7 +481,7 @@ class xiaomiFanDevice {
 
   prepareIoniserControlService() {
     if (this.ioniserControl && this.fanDevice.supportsIoniser()) {
-      this.ioniserControlService = new Service.Switch('Ioniser', 'ioniserControlService');
+      this.ioniserControlService = new Service.Switch('Ionisierer', 'ioniserControlService');
       this.ioniserControlService
         .getCharacteristic(Characteristic.On)
         .on('get', this.getIoniserState.bind(this))
@@ -493,7 +493,7 @@ class xiaomiFanDevice {
 
   prepareTemperatureService() {
     if (this.fanDevice.supportsTemperatureReporting()) {
-      this.temperatureService = new Service.TemperatureSensor('Temp', 'temperatureService');
+      this.temperatureService = new Service.TemperatureSensor('Temperatur', 'temperatureService');
       this.temperatureService
         .setCharacteristic(Characteristic.StatusFault, Characteristic.StatusFault.NO_FAULT)
         .setCharacteristic(Characteristic.StatusTampered, Characteristic.StatusTampered.NOT_TAMPERED)
@@ -508,7 +508,7 @@ class xiaomiFanDevice {
 
   prepareRelativeHumidityService() {
     if (this.fanDevice.supportsRelativeHumidityReporting()) {
-      this.relativeHumidityService = new Service.HumiditySensor('Humidity', 'relativeHumidityService');
+      this.relativeHumidityService = new Service.HumiditySensor('Feuchtigkeit', 'relativeHumidityService');
       this.relativeHumidityService
         .setCharacteristic(Characteristic.StatusFault, Characteristic.StatusFault.NO_FAULT)
         .setCharacteristic(Characteristic.StatusTampered, Characteristic.StatusTampered.NOT_TAMPERED)
@@ -523,7 +523,7 @@ class xiaomiFanDevice {
 
   prepareBatteryService() {
     if (this.fanDevice.hasBuiltInBattery() && this.fanDevice.supportsBatteryStateReporting()) {
-      this.batteryService = new Service.BatteryService('Battery', 'batteryService');
+      this.batteryService = new Service.BatteryService('Ladezustand', 'batteryService');
       this.batteryService
         .setCharacteristic(Characteristic.ChargingState, Characteristic.ChargingState.NOT_CHARGING)
         .setCharacteristic(Characteristic.StatusLowBattery, Characteristic.StatusLowBattery.BATTERY_LEVEL_NORMAL);
