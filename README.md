@@ -1,6 +1,6 @@
 <span align="center">
 
-# homebridge-xiaomi-fan
+# homebridge-xiaomi-fan-de
 
 [![verified-by-homebridge](https://badgen.net/badge/homebridge/verified/purple)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins#verified-plugins)
 [![homebridge-xiaomi-fan](https://badgen.net/npm/v/homebridge-xiaomi-fan?icon=npm)](https://www.npmjs.com/package/homebridge-xiaomi-fan)
@@ -9,6 +9,8 @@
 [![join-discord](https://badgen.net/badge/icon/discord?icon=discord&label=homebridge-xiaomi-fan)](https://discord.gg/AFYUZbk)
 
 </span>
+
+This is a fork from the original Project, just translated to german
 
 `homebridge-xiaomi-fan` is a plugin for homebridge which allows you to control Xiaomi Smartmi and Mija Fans! It should work with most smart fans from xiaomi.
 The goal is to make the fan fully controllable from the native Homekit iOS app and Siri.
